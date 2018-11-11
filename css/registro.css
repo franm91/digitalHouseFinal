@@ -1,0 +1,111 @@
+.contenedor-principal{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+
+.contenedor-principal img{
+  display: none;
+}
+
+.info h2{
+  display: none;
+  margin: auto;
+  width: 90%;
+  font-size: 10px;
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.registro, .login, .etiqueta{
+  text-align: center;
+}
+
+.registro h2, .registro p, .login h2, .login p, .etiqueta p{
+  margin-top: 3px;
+  margin-bottom: 3px;
+}
+
+.formulario, .etiqueta{
+  margin: 4px;
+  width: 70%;
+  background-color: #f6e29a;
+  padding: 5px;
+}
+
+.formulario p, .etiqueta p{
+  font-size: 12px;
+}
+
+.login a{
+  font-size: 10px;
+}
+
+input, .paisUsuario, .labelAvatar{
+    width: 100%;
+    padding: 5px 5px;
+    margin: 2px 0;
+    display: inline-block;
+    border: 1px solid #b1b1b1;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+.paisUsuario, .labelAvatar{
+  background-color: rgba(237, 197, 26, 0.33);
+}
+
+
+.upload {
+  position: relative;
+  overflow: hidden;
+  display: inline-block;
+}
+
+.upload input[type=file] {
+  font-size: 10px;
+  position: absolute;
+  left: 0;
+  top: 0;
+  opacity: 0;
+}
+
+button[type=submit] {
+    width: 100%;
+    background-color: #f19710;
+    color: white;
+    padding: 8px 15px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+button[type=submit]:hover {
+    background-color: #fa6f3c;
+}
+
+span {
+  color:red;
+  font-size: 10px;
+}
+
+
+.logreg{
+  display: flex;
+  margin: 5px;
+}
+
+.logreg a{
+  margin: 5px;
+}
+
+.maintitle{
+  color: #000;
+}
+
+.c-box{
+  padding: 5px;
+}

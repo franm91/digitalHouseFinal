@@ -1,0 +1,134 @@
+
+.contenedorPrincipal{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  align-items: center;
+  max-width: 100%;
+  background-color: #fff;
+  padding: 7px;
+  margin-bottom: 7px;
+}
+
+.contenedorCover{
+  display: flex;
+  justify-content: center;
+  max-height: 300px;
+  background-color: rgb(124, 195, 235);
+}
+
+.contenedorCover img{
+ height: 100%;
+ width: 100%;
+}
+
+
+.navPerfil{
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  max-height: 70px;
+  background-color: #fff;
+}
+
+.navPerfil a{
+  text-decoration: none;
+  color: #000;
+}
+
+.navPerfil a:hover{
+  text-decoration: underline;
+}
+
+.navPerfil ul{
+  display: flex;
+  padding: 5px;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.perfil{
+  display: flex;
+  width: 20%;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  transform: translate(0px, -25px);
+}
+
+.perfil p{
+  margin: auto;
+  padding: 5px;
+  font-weight: bold;
+}
+
+.listPerfilL, .listPerfilR{
+  background-color: white;
+  width: 40%;
+}
+
+
+.listPerfilL li, .listPerfilR li{
+  display: flex;
+  justify-content: space-between;
+  text-decoration: none;
+}
+
+.avatar{
+  width: 75px;
+  border-radius: 50%;
+  background-color: #fff;
+}
+
+.contenedorSecundario{
+  display: flex;
+  width: 100%;
+}
+
+.icon{
+  width: 16px;
+}
+
+.contenedorSecundario ul{
+  padding: 0;
+}
+
+.contenedorSecundario li{
+  list-style: none;
+  margin-bottom: 1.5px;
+}
+
+.datosCuenta, .quiensoy{
+  display: flex;
+  flex-direction:column;
+  background-color: #fff;
+  width: 40%;
+  padding: 7px;
+}
+
+.datosCuenta h4{
+  text-align: center;
+  margin: 5px auto;
+}
+
+
+.quiensoy{
+  width: 60%;
+  margin-left: 0.7%;
+}
+
+.quiensoy h3{
+  text-align: center;
+  color: #000;
+  margin: 0;
+}
+
+hr {
+  display: block;
+  height: 1px;
+  border: 0;
+  border-top: 1px solid #ccc;
+  margin: 0;
+  padding: 0;
+}

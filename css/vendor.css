@@ -1,0 +1,25 @@
+* {
+	box-sizing: border-box;
+}
+
+.site-wrapper{
+  display:flex;
+  flex-direction: column;
+  width:100%;
+}
+
+
+body {
+	display: flex;
+	flex-wrap: wrap;
+	width: 960px;
+	background-color: rgba(237, 197, 26, 0.82);
+	flex-direction: column;
+	justify-content: flex-start;
+	font-family: 'Kodchasan', sans-serif;
+	margin: auto;
+}
+
+h1{
+	font-family: 'Bad Script', cursive;
+}

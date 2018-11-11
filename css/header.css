@@ -1,0 +1,28 @@
+header {
+  display: flex;
+  justify-content: center;
+  margin: 10px auto;
+  background-color: #f6e29a;
+  border: 5px solid #fff;
+  width: 100%;
+}
+
+.header-content{
+  display: flex;
+  justify-content: center;
+}
+
+.mainTitle{
+  vertical-align: middle;
+}
+
+.header-content a{
+  display: flex;
+  text-decoration: none;
+  color: #000;
+}
+
+header img{
+  width: 60px;
+  height: 100px;
+}
