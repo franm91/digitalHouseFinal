@@ -3,6 +3,8 @@ $title = "Registrate en Felicitrip - para el viajero que hay en vos";
 $mainTitle = "Felicitrip";
 require_once('config.php');
 require_once('head.php');
+
+
  ?>
 
 
@@ -28,13 +30,13 @@ require_once('head.php');
               <p>Conectate con otr@s viajer@s para vivir nuevas experiencias sin fronteras.</p>
               <div class="fullname">
                 <input type="text" placeholder="Nombre" name="nombre" value="<?php echo $nombre ?>">
-                  <span><?php echo $errorNombre; ?></span>
+                  <span><?= $errors["errorNombre"] ?? ""; ?></span>
                 <input type="text" placeholder="Apellido" name="apellido" value="<?php echo $apellido ?>">
-                  <span><?php echo $errorApellido; ?></span>
+                  <span><?= $errors["errorApellido"] ?? ""; ?></span>
               </div>
 
               <input type="text" placeholder="Email" name="email" value="<?php echo $email ?>">
-                <span><?php echo $errorEmail; ?></span>
+                <span><?= $errors["errorEmail"] ?? "" ; ?></span>
               <select class="paisUsuario" name="paisUsuario">
                 <option value=0>Seleccione un País</option>
                 <?php
@@ -46,23 +48,22 @@ require_once('head.php');
                     </option>
                 <?php } ?>
               </select>
-                <span><?php echo $errorPais; ?></span>
+                <span><?= $errors["errorPais"] ?? "" ; ?></span>
 
               <input type="text" placeholder="Nombre de usuario" name="userName" value="<?php echo $userName ?>">
-                <span><?php echo $errorUserName; ?></span>
+                <span><?= $errors["errorUserName"] ?? "" ; ?></span>
                 <br>
 
               <div class="upload">
                 <label class="labelAvatar" for="avatar">Sube tu avatar</label>
                 <input type="file" id="avatar" name="foto">
-                  <span><?php echo $errorImg; ?></span>
+                <span><?= $errors["errorImg"] ?? "" ; ?></span>
               </div>
 
               <input type="password" placeholder="Ingresa tu contraseña" name="contrasena">
-                <span><?php echo $errorContrasena; ?></span>
-
+                <span><?= $errors["errorContrasena"] ?? "" ; ?></span>
               <input type="password" placeholder="Repite tu contraseña" name="checkContrasena">
-                <span><?php echo $errorCheckContrasena; ?></span>
+                <span><?= $errors["errorCheckContrasena"] ?? "" ; ?></span>
 
               <button type="submit" name="">Registrate</button>
             </form>
