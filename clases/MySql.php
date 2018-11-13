@@ -35,6 +35,8 @@ class MySql extends Bd{
             email,
             pais,
             nombre_usuario,
+            descripcion,
+            avatar,
             password)
          VALUES(
             :nombre,
@@ -42,6 +44,8 @@ class MySql extends Bd{
             :email,
             :pais,
             :nombre_usuario,
+            :descripcion,
+            :avatar,
             :password)
          ");
 
@@ -50,6 +54,8 @@ class MySql extends Bd{
       $stmt->bindvalue(":email",$usuario->getEmail());
       $stmt->bindvalue(":pais",$usuario->getPais());
       $stmt->bindvalue(":nombre_usuario",$usuario->getUserName());
+      $stmt->bindvalue(":descripcion",$usuario->getDescripcion());
+      $stmt->bindvalue(":avatar",$usuario->getAvatar());
       $stmt->bindvalue(":password",$usuario->getPassword());
 
       $stmt->execute();
@@ -77,6 +83,8 @@ class MySql extends Bd{
             $oneUser->email,
             $oneUser->pais,
             $oneUser->nombre_usuario,
+            $oneUser->descripcion,
+            $oneUser->avatar,
             $oneUser->password
          );
       }
@@ -104,6 +112,8 @@ class MySql extends Bd{
             $userByEmail->email,
             $userByEmail->pais,
             $userByEmail->nombre_usuario,
+            $userByEmail->descripcion,
+            $userByEmail->avatar,
             $userByEmail->password
          );
       }else {
@@ -132,6 +142,8 @@ class MySql extends Bd{
             $userByUserName->email,
             $userByUserName->pais,
             $userByUserName->nombre_usuario,
+            $userByUserName->descripcion,
+            $userByUserName->avatar,
             $userByUserName->password
          );
       }else {

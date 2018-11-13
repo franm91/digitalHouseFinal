@@ -8,6 +8,8 @@ class Usuario
    private $email;
    private $pais;
    private $userName;
+   private $avatar;
+   private $descripcion;
    private $password;
 
    function __construct($name, $lastName, $email, $pais, $userName, $password, $id = NULL){
@@ -72,12 +74,19 @@ class Usuario
    }
 
 
-   // public function getAvatar() {
-   //    return $this->avatar;
-   // }
-   // public function setAvatar($avatar) {
-   //    $this->avatr = $avatar;
-   // }
+   public function getAvatar() {
+      return $this->avatar;
+   }
+   public function setAvatar($avatar) {
+      $this->avatar = $avatar;
+   }
+
+   public function getDescripcion() {
+      return $this->descripcion;
+   }
+   public function setDescripcion($descripcion) {
+      $this->descripcion = $descripcion;
+   }
 
 
    public function getPassword(){
@@ -88,7 +97,7 @@ class Usuario
    }
 
 
-   public function saveAvatar(){
+   public function saveAvatar(Usuario $usuario){
       if($_FILES['foto']['error'] == UPLOAD_ERR_OK){
          $desde = $_FILES['foto']['tmp_name'];
          $archivo = $_POST['email'];
@@ -96,7 +105,7 @@ class Usuario
          if($ext == 'jpg' || $ext == 'jpeg' || $ext == 'png'){
             $hasta =  dirname(__DIR__) . "/images/avatars/" . $archivo . "." . $ext;
             move_uploaded_file($desde, $hasta);
-            return $hasta;
+            return $this->getUserName() . "." . $ext;
             //header('location:perfil.php');
          }
       }

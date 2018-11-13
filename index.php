@@ -50,7 +50,7 @@ require_once('head.php');
               </select>
                 <span><?= $errors["errorPais"] ?? "" ; ?></span>
 
-              <input type="text" placeholder="Nombre de usuario" name="userName" value="<?php echo $userName ?>">
+              <input type="text" placeholder="Nombre de usuario" name="userName" value="<?= $userName ?>">
                 <span><?= $errors["errorUserName"] ?? "" ; ?></span>
                 <br>
 
