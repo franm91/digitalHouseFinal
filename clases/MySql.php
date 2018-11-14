@@ -77,19 +77,19 @@ class MySql extends Bd{
 
       foreach ($allUsers as $oneUser) {
          $users[] = new Usuario(
-            $oneUser->id,
             $oneUser->nombre,
             $oneUser->apellido,
             $oneUser->email,
             $oneUser->pais,
             $oneUser->nombre_usuario,
-            $oneUser->descripcion,
-            $oneUser->avatar,
-            $oneUser->password
+            $oneUser->password,
+            $oneUser->id,
+            $oneUser->descripcion
          );
       }
-
+      $users->setAvatar($oneUser->avatar);
       return $users;
+
    }
 
    public function getUserByEmail($email){
@@ -104,18 +104,20 @@ class MySql extends Bd{
 
       $userByEmail = $stmt->fetch(PDO::FETCH_OBJ);
 
+
       if ($userByEmail){
-         return new Usuario(
-            $userByEmail->id,
+         $user = new Usuario(
             $userByEmail->nombre,
             $userByEmail->apellido,
             $userByEmail->email,
             $userByEmail->pais,
             $userByEmail->nombre_usuario,
-            $userByEmail->descripcion,
-            $userByEmail->avatar,
-            $userByEmail->password
+            $userByEmail->password,
+            $userByEmail->id,
+            $userByEmail->descripcion
          );
+         $user->setAvatar($userByEmail->avatar);
+         return $user;
       }else {
          return NULL;
       }
@@ -136,16 +138,17 @@ class MySql extends Bd{
 
       if ($userByUserName){
          return new Usuario(
-            $userByUserName->id,
             $userByUserName->nombre,
             $userByUserName->apellido,
             $userByUserName->email,
             $userByUserName->pais,
             $userByUserName->nombre_usuario,
-            $userByUserName->descripcion,
-            $userByUserName->avatar,
-            $userByUserName->password
+            $userByUserName->password,
+            $userByUserName->id,
+            $userByUserName->descripcion
          );
+         $user->setAvatar($userByUserName->avatar);
+         return $user;
       }else {
          return NULL;
       }

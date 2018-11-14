@@ -12,11 +12,15 @@ class Usuario
    private $descripcion;
    private $password;
 
-   function __construct($name, $lastName, $email, $pais, $userName, $password, $id = NULL){
-      if ($id === NULL) {
+   function __construct($name, $lastName, $email, $pais, $userName, $password, $id = null, $desc = null){
+      if ($id === null) {
          $this->setPassword($password);
       }else {
          $this->password = $password;
+      }
+
+      if ($desc != null) {
+         $this->descripcion = $desc;
       }
 
       $this->setId($id);

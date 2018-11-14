@@ -1,31 +1,26 @@
 <?php
-$errorEmail = "";
-$errorContrasena = "";
-$email = "";
-
-//****************Log In***********
-if($_POST){
-  //var_dump($_POST);
-  //var_dump($_FILES);
-  //****************CONFIGURACION DE VARIABLES***********
-  $email = trim($_POST['email']);
-  $contrasena = trim($_POST['contrasena']);
-
-  if(!filter_var($email, FILTER_VALIDATE_EMAIL)){
-    $errorEmail = "Ingresa un email valido";
-    }elseif(empty ($email)){
-      $errorEmail = "El email es obligatorio";
-    }
-  if(empty($contrasena) || strlen($contrasena) < 6){
-    $errorContrasena = "La contraseña debe tener 6 caracteres minimo.";
-    }
-  if(empty($errorEmail) && empty($errorContrasena)){
-    header('location:perfil.php');
-  }
-}
+require_once ('autoload.php');
 
 $title = "Felicitrip Login - para el viajero que hay en vos";
 $mainTitle = "Felicitrip";
+
+
+$email = "";
+
+
+$errors = [];
+//****************************************************************
+//******************IF $_POST RECIBE DATOS O NO*******************
+//****************************************************************
+if($_POST){
+   $errors = Validador::validarLogIn($_POST, $db);
+
+   if (count($errors) == 0) {
+      header("Location:perfil.php?$email");exit;
+   }
+
+}
+
 
 require_once ('head.php');
 
@@ -40,9 +35,9 @@ require_once ('head.php');
             <form class="login" action="" method="post" enctype="multipart/form-data">
               <h2>Ingresa a tu cuenta</h2>
               <input type="text" placeholder="Email" name="email" value="<?php echo $email ?>">
-              <span><?php echo $errorEmail; ?></span>
+              <span><?= $errors["errorEmail"] ?? "";?></span>
               <input type="password" placeholder="Contraseña" name="contrasena">
-              <span><?php echo $errorContrasena; ?></span>
+              <span><?= $errors["errorContrasena"] ?? "" ?></span>
               <button type="submit" name="">Ingresar</button>
               <a href="#">¿Has olvidado la contraseña?</a>
             </form>

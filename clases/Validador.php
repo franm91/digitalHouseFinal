@@ -85,4 +85,32 @@ class Validador{
       return $errors;
       }
    }
+
+
+   public static function validarLogIn($post, MySql $db){
+      $errors = [];
+
+      if($_POST){
+         //****************CONFIGURACION DE VARIABLES***********
+         $email = trim($_POST['email']);
+         $contrasena = trim($_POST['contrasena']);
+
+         //var_dump(!filter_var($email, FILTER_VALIDATE_EMAIL));exit;
+
+         if(!filter_var($email, FILTER_VALIDATE_EMAIL)){
+            $errors["errorEmail"] = "Ingresa un email valido.";
+         } else if ($db->getUserByEmail($email) == "") {
+            $errors["errorEmail"] = "El email no existe.";
+         }
+
+         $usuario = $db->getUserByEmail($email);
+
+         if ($usuario !== NULL) {
+            if (!password_verify($contrasena, $usuario->getPassword())) {
+               $errors["errorContrasena"] = "La contraseña no es correcta";
+            }
+         }
+      }
+      return $errors;
+   }
 }
