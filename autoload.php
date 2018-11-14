@@ -1,7 +1,7 @@
 <?php
 require_once "clases/Bd.php";
 require_once "clases/MySql.php";
-$db = new MySql("final-dh", "root", "root");
+$db = new MySql("final-dh", "root", "");
 require_once "clases/Auth.php";
 $auth = new Auth;
 require_once "clases/Validador.php";

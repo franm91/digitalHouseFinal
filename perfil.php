@@ -5,7 +5,6 @@ $title = "Perfil del viajero - para el viajero que hay en vos";
 $mainTitle = "Felicitrip";
 if (isset($_SESSION["logueado"])) {
   $usuarioLogueado =  $db->getUserByEmail($_SESSION["logueado"]);
-  var_dump($usuarioLogueado);
 }
 
 require_once ('head.php');
@@ -23,14 +22,14 @@ require_once ('head.php');
           <li><a href="#">Seguidores</a></li>
         </ul>
         <div class="perfil">
-          <img class="avatar"  src="images/avatars/ . <?= $usuarioLogueado->getAvatar() ?>">
+          <img class="avatar"  src="images/avatars/<?= $usuarioLogueado->getAvatar() ?>">
           <p><?= $usuarioLogueado->getName() . ' ' . $usuarioLogueado->getLastName()  ?></p>
         </div>
         <ul class="listPerfilR">
           <li><a href="#">Fotos</a></li>
           <li><a href="#">Videos</a></li>
           <li><a href="#">Recomendaciones</a></li>
-          <li><a href="logOut.php">Log Out</li>
+          <li><a href="logOut.php">Log Out</a></li>
         </ul>
       </nav>
     </section>
