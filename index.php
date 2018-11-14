@@ -3,6 +3,9 @@ require_once ('autoload.php');
 
 $title = "Registrate en Felicitrip - para el viajero que hay en vos";
 $mainTitle = "Felicitrip";
+if ($auth->estaLogueado()) {
+  header("Location:perfil.php?$email");exit;
+}
 
 $nombre = "";
 $apellido = "";

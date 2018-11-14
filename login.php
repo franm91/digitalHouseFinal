@@ -4,6 +4,9 @@ require_once ('autoload.php');
 $title = "Felicitrip Login - para el viajero que hay en vos";
 $mainTitle = "Felicitrip";
 
+if ($auth->estaLogueado()) {
+  header("Location:perfil.php?$email");exit;
+}
 
 $email = "";
 
@@ -16,6 +19,9 @@ if($_POST){
    $errors = Validador::validarLogIn($_POST, $db);
 
    if (count($errors) == 0) {
+      $email = trim($_POST['email']);
+
+      $auth->loguear($email);
       header("Location:perfil.php?$email");exit;
    }
 
@@ -38,6 +44,7 @@ require_once ('head.php');
               <span><?= $errors["errorEmail"] ?? "";?></span>
               <input type="password" placeholder="Contraseña" name="contrasena">
               <span><?= $errors["errorContrasena"] ?? "" ?></span>
+              <input id="recordarme"type="checkbox" name="Recordarme" value=""><p>Recordarme</p>
               <button type="submit" name="">Ingresar</button>
               <a href="#">¿Has olvidado la contraseña?</a>
             </form>

@@ -20,6 +20,10 @@
   display: flex;
   padding: 5px;
   color: #000;
+
+}
+#recordarme{
+  width: 10%;
 }
 
 .ini-h3 li{

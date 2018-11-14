@@ -1,12 +1,17 @@
 
 <?php
+require_once 'autoload.php';
 $title = "Perfil del viajero - para el viajero que hay en vos";
 $mainTitle = "Felicitrip";
+if (isset($_SESSION["logueado"])) {
+  $usuarioLogueado =  $db->getUserByEmail($_SESSION["logueado"]);
+  var_dump($usuarioLogueado);
+}
 
 require_once ('head.php');
 ?>
   <body>
-    <?php require_once('header.php'); ?>  
+    <?php require_once('header.php'); ?>
     <section class="contenedorPrincipal">
       <div class="contenedorCover">
         <img class="imagenPerfil"  src="images/fondo_perfil.jpg" alt="imagen ciudad">
@@ -18,13 +23,14 @@ require_once ('head.php');
           <li><a href="#">Seguidores</a></li>
         </ul>
         <div class="perfil">
-          <img class="avatar"  src="images/profile.png">
-          <p>Bruce Wayne</p>
+          <img class="avatar"  src="images/avatars/ . <?= $usuarioLogueado->getAvatar() ?>">
+          <p><?= $usuarioLogueado->getName() . ' ' . $usuarioLogueado->getLastName()  ?></p>
         </div>
         <ul class="listPerfilR">
           <li><a href="#">Fotos</a></li>
           <li><a href="#">Videos</a></li>
           <li><a href="#">Recomendaciones</a></li>
+          <li><a href="logOut.php">Log Out</li>
         </ul>
       </nav>
     </section>
@@ -33,9 +39,9 @@ require_once ('head.php');
         <div class="personales">
           <h4>Datos Personales <a href="#"><img class="icon"src="images/modify.png" alt=""></a></h4>
           <ul>
-            <li><strong>Nombre:</strong> Bruce Wayne</li>
-            <li><strong>Nacionalidad:</strong> Argentino</li>
-            <li><strong>País de residencia:</strong> Russia</li>
+            <li><strong>Nombre de Usuario:</strong> <?= $usuarioLogueado->getUserName() ?></li>
+            <li><strong>Nacionalidad:</strong><?= $usuarioLogueado->getPais() ?></li>
+
             <li><strong>Profesion:</strong> Misteriosa</li>
             <li><strong>Fecha de nacimiento:</strong> 10-05-1980</li>
           </ul>
@@ -44,8 +50,10 @@ require_once ('head.php');
         <div class="infoContacto">
           <h4>Datos Personales <a href="#"><img class="icon"src="images/modify.png" alt=""></a></h4>
           <ul>
-            <li><strong>Email:</strong> brucewayne@imbatman.com</li>
-            <li><strong>Movil:</strong> 11-3-123-4567</li>
+            <li><strong>Email:</strong> <?= $usuarioLogueado->getEmail() ?></li>
+            <li><strong>Nombre:</strong> <?= $usuarioLogueado->getName() . ' ' . $usuarioLogueado->getLastName()  ?></li>
+
+
           </ul>
         </div>
         <hr>
@@ -60,13 +68,7 @@ require_once ('head.php');
       </nav>
       <nav class="quiensoy">
         <h3>¿Quien soy?</h3>
-          <p >Lorem ipsum dolor sit amet, consectetur adipisicing elit,
-            sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-            Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi
-            ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit
-            in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint
-            occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-            quis nostrud exercitation ullamco laboris nisi
+          <p ><?= $usuarioLogueado->getDescripcion() ?>
           </p>
       </nav>
     </section>
