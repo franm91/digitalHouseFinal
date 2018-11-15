@@ -16,15 +16,18 @@ $errors = [];
 //******************IF $_POST RECIBE DATOS O NO*******************
 //****************************************************************
 if($_POST){
-   $errors = Validador::validarLogIn($_POST, $db);
+   $email = $_POST["email"];
 
+   $errors = Validador::validarLogIn($_POST, $db);
    if (count($errors) == 0) {
       $email = trim($_POST['email']);
-
       $auth->loguear($email);
+
+      if (isset($_POST["recordarme"])) {
+         $auth->recordarme($_POST["email"]);
+      }
       header("Location:perfil.php?$email");exit;
    }
-
 }
 
 
@@ -40,11 +43,11 @@ require_once ('head.php');
           <article class="formulario">
             <form class="login" action="" method="post" enctype="multipart/form-data">
               <h2>Ingresa a tu cuenta</h2>
-              <input type="text" placeholder="Email" name="email" value="<?php echo $email ?>">
+              <input type="text" placeholder="Email" name="email" value="<?php echo $email; ?>">
               <span><?= $errors["errorEmail"] ?? "";?></span>
               <input type="password" placeholder="Contraseña" name="contrasena">
-              <span><?= $errors["errorContrasena"] ?? "" ?></span>
-              <input id="recordarme"type="checkbox" name="Recordarme" value=""><p>Recordarme</p>
+              <span><?= $errors["errorContrasena"] ?? "" ?><br></span>
+              <input id="recordarme"type="checkbox" name="recordarme" value=""><p>Recordarme</p>
               <button type="submit" name="">Ingresar</button>
               <a href="#">¿Has olvidado la contraseña?</a>
             </form>

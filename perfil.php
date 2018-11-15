@@ -1,16 +1,20 @@
 
 <?php
 require_once 'autoload.php';
+
 $title = "Perfil del viajero - para el viajero que hay en vos";
 $mainTitle = "Felicitrip";
+
 if (isset($_SESSION["logueado"])) {
-  $usuarioLogueado =  $db->getUserByEmail($_SESSION["logueado"]);
+
+  $usuarioLogueado = $auth->usuarioLogueado($db);
 }
+
 
 require_once ('head.php');
 ?>
   <body>
-    <?php require_once('header.php'); ?>
+    <!-- <?php require_once('header.php'); ?> -->
     <section class="contenedorPrincipal">
       <div class="contenedorCover">
         <img class="imagenPerfil"  src="images/fondo_perfil.jpg" alt="imagen ciudad">
@@ -39,27 +43,25 @@ require_once ('head.php');
           <h4>Datos Personales <a href="#"><img class="icon"src="images/modify.png" alt=""></a></h4>
           <ul>
             <li><strong>Nombre de Usuario:</strong> <?= $usuarioLogueado->getUserName() ?></li>
-            <li><strong>Nacionalidad:</strong><?= $usuarioLogueado->getPais() ?></li>
+            <li><strong>Nacionalidad:</strong> <?= $usuarioLogueado->getPais() ?></li>
 
-            <li><strong>Profesion:</strong> Misteriosa</li>
-            <li><strong>Fecha de nacimiento:</strong> 10-05-1980</li>
+            <!-- <li><strong>Profesion:</strong> Misteriosa</li> -->
+            <!-- <li><strong>Fecha de nacimiento:</strong> 10-05-1980</li> -->
           </ul>
         </div>
         <hr>
         <div class="infoContacto">
           <h4>Datos Personales <a href="#"><img class="icon"src="images/modify.png" alt=""></a></h4>
           <ul>
-            <li><strong>Email:</strong> <?= $usuarioLogueado->getEmail() ?></li>
             <li><strong>Nombre:</strong> <?= $usuarioLogueado->getName() . ' ' . $usuarioLogueado->getLastName()  ?></li>
-
-
+            <li><strong>Email:</strong> <?= $usuarioLogueado->getEmail() ?></li>
           </ul>
         </div>
         <hr>
         <div class="infoCuenta">
           <h4>Datos de cuenta <a href="#"><img class="icon"src="images/modify.png" alt=""></a></h4>
           <ul>
-            <li><strong>Usuario:</strong> Batman</li>
+            <li><strong>Usuario:</strong> <?= $usuarioLogueado->getUserName() ?></li>
             <li><strong>Password:</strong> ****** </li>
           </ul>
         </div>

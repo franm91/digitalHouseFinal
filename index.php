@@ -57,7 +57,7 @@ if($_POST){
 
       //guardo en la base de datos el nuevo usuario
       $db->saveUser($usuario);
-
+      $auth->loguear($usuario->getEmail());
       header("Location:perfil.php?$email");exit;
    }
 }

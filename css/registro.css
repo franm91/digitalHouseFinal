@@ -37,6 +37,7 @@
 
 .formulario p, .etiqueta p{
   font-size: 12px;
+  display: inline-block;
 }
 
 .login a{

@@ -104,7 +104,7 @@ class Usuario
    public function saveAvatar(Usuario $usuario){
       if($_FILES['foto']['error'] == UPLOAD_ERR_OK){
          $desde = $_FILES['foto']['tmp_name'];
-         $archivo = $_POST['email'];
+         $archivo = $_POST['userName'];
          $ext = pathinfo($_FILES['foto']['name'],PATHINFO_EXTENSION);
          if($ext == 'jpg' || $ext == 'jpeg' || $ext == 'png'){
             $hasta =  dirname(__DIR__) . "/images/avatars/" . $archivo . "." . $ext;
