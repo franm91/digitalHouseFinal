@@ -113,4 +113,63 @@ class Validador{
       }
       return $errors;
    }
+
+
+   public static function validarActualizacion($post, MySql $db){
+
+      //Si el validador encuentra algun error lo mete en el array $errors.
+      $errors = [];
+      //****************************************************************
+      //******************IF $_POST RECIBE DATOS O NO*******************
+      //****************************************************************
+
+      if($_POST){
+         //****************CONFIGURACION DE VARIABLES***********
+         $nombre = trim($_POST['nombre']);
+         $apellido = trim($_POST['apellido']);
+         $paisElegido = $_POST['paisUsuario'];
+         $desc = $_POST['descripcionUsuario'];
+
+         //****************ERRORES Nombre***********************
+      if(empty($nombre)){
+            $errors["errorNombre"] = "El nombre es obligatiorio.<br>";
+         }else if (!((strlen($nombre) >= $min = 3) & (strlen($nombre) <= $max = 15))) {
+            $errors["errorNombre"] = "El nombre debe tener entre " . $min . " y " . $max . " caracteres.";
+         }else if (!ctype_alpha($nombre)){
+            $errors["errorNombre"] = "El nombre solo puede contener letras";
+         }
+
+
+
+      //****************ERRORES Apellido***********************
+      if(empty($apellido)){
+            $errors["errorApellido"] = "El apellido es obligatiorio.<br>";
+         }else if (!((strlen($apellido) > $min = 1) & (strlen($apellido) <= $max = 30))) {
+            $errors["errorApellido"] = "El nombre debe tener entre " . $min . " y " . $max . " caracteres.";
+         }else if (!ctype_alpha($apellido)){
+            $errors["errorApellido"] = "El apellido solo puede contener letras";
+         }
+
+
+      //****************ERRORES PAIS********************
+      if($_POST['paisUsuario'] == "0"){
+         $errors["errorPais"] = "Selecciona un País";
+         }
+
+      if (strlen($desc > $max = 500)) {
+         $errors["errorDesc"] = "La descripcion no puede tener mas de " . $max . " caracteres.";
+      }
+
+      if(count($errors) == 0){
+         //var_dump($_FILES['foto']); exit;
+         if($_FILES['foto']['error'] == UPLOAD_ERR_OK){
+            $ext = pathinfo($_FILES['foto']['name'],PATHINFO_EXTENSION);
+            if($ext != 'jpg' && $ext != 'jpeg' && $ext != 'png'){
+               $errors["errorImg"] = "Formato no valido";
+               }
+            }
+         }
+      return $errors;
+      }
+   }
 }

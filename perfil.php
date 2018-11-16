@@ -40,7 +40,7 @@ require_once ('head.php');
     <section class="contenedorSecundario">
       <nav class="datosCuenta">
         <div class="personales">
-          <h4>Datos Personales <a href="#"><img class="icon"src="images/modify.png" alt=""></a></h4>
+          <h4>Datos Personales <a href="actualizarPerfil.php"><img class="icon"src="images/modify.png" alt=""></a></h4>
           <ul>
             <li><strong>Nombre de Usuario:</strong> <?= $usuarioLogueado->getUserName() ?></li>
             <li><strong>Nacionalidad:</strong> <?= $usuarioLogueado->getPais() ?></li>
@@ -51,7 +51,7 @@ require_once ('head.php');
         </div>
         <hr>
         <div class="infoContacto">
-          <h4>Datos Personales <a href="#"><img class="icon"src="images/modify.png" alt=""></a></h4>
+
           <ul>
             <li><strong>Nombre:</strong> <?= $usuarioLogueado->getName() . ' ' . $usuarioLogueado->getLastName()  ?></li>
             <li><strong>Email:</strong> <?= $usuarioLogueado->getEmail() ?></li>
@@ -59,7 +59,7 @@ require_once ('head.php');
         </div>
         <hr>
         <div class="infoCuenta">
-          <h4>Datos de cuenta <a href="#"><img class="icon"src="images/modify.png" alt=""></a></h4>
+          
           <ul>
             <li><strong>Usuario:</strong> <?= $usuarioLogueado->getUserName() ?></li>
             <li><strong>Password:</strong> ****** </li>

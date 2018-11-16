@@ -21,33 +21,16 @@ $errors = [];
 if($_POST){
    $errors = Validador::validarRegistro($_POST, $db);
 
-   if (!isset($errores["errorNombre"])) {
-      $nombre = $_POST["nombre"];
-   }
-
-   if (!isset($errores["errorApellido"])) {
-      $apellido = $_POST["apellido"];
-   }
-
-   if (!isset($errores["errorEmail"])) {
-      $email = $_POST["email"];
-   }
-
-   if (!isset($errores["errorPais"])) {
-      $paisElegido = $_POST["paisUsuario"];
-   }
-
-   if (!isset($errores["errorUserName"])) {
-      $userName = $_POST["userName"];
-   }
-
-   if (!isset($errores["errorImg"])) {
-      $avatar = $_FILES["foto"];
-   }
-
-
    if (count($errors) == 0) {
-      $usuario = new Usuario($_POST["nombre"], $_POST["apellido"], $_POST["email"], $_POST["paisUsuario"], $_POST["userName"], $_POST["contrasena"]);
+
+      $nombre = trim($_POST['nombre']);
+      $apellido = trim($_POST['apellido']);
+      $email = trim($_POST['email']);
+      $userName = trim($_POST['userName']);
+      $contrasena = trim($_POST['contrasena']);
+      $paisElegido = $_POST['paisUsuario'];
+
+      $usuario = new Usuario($nombre, $apellido, $email, $paisElegido, $userName, $contrasena);
 
       //el metodo saveAvatar recibe un usuario y guarda el avatar y me devuelve el nombre del avatar en una variable
       $avatarName = $usuario->saveAvatar($usuario);

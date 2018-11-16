@@ -154,6 +154,37 @@ class MySql extends Bd{
       }
    }
 
+   public function updateUser(Usuario $usuario){
+      $nombre = $usuario->getName();
+      $apellido = $usuario->getLastName();
+      $pais = $usuario->getPais();
+      $desc = $usuario->getDescripcion();
+      $avatar = $usuario->getAvatar();
+      $userId = $usuario->getId();
+
+      $stmt = $this->connection->prepare(
+         "UPDATE usuarios
+         SET
+            nombre = '$nombre',
+            apellido = '$apellido',
+            pais = '$pais',
+            descripcion = '$desc',
+            avatar = '$avatar'
+         WHERE ID = $userId
+         ");
+         //var_dump($stmt);exit;
+      // $stmt->bindvalue(":nombre", $nombre);
+      // $stmt->bindvalue(":apellido", $apellido);
+      // $stmt->bindvalue(":pais", $pais);
+      // $stmt->bindvalue(":descripcion", $desc);
+      // $stmt->bindvalue(":avatar", $avatar);
+      // $stmt->bindvalue(":userID", $userId);
+      $stmt->execute();
+
+
+      return TRUE;
+   }
+
 
 
 

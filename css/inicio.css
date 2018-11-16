@@ -54,3 +54,7 @@
 .maintitle {
   color: black;
 }
+
+textarea{
+   resize: none;
+}
