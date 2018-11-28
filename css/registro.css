@@ -1,6 +1,6 @@
 .contenedor-principal{
-  display: flex;
-  flex-direction: column;
+  display: inline-block;
+
   align-items: center;
   justify-content: center;
   width: 100%;
@@ -8,6 +8,7 @@
 
 .contenedor-principal img{
   display: none;
+  width: 100% auto;
 }
 
 .info h2{
@@ -26,12 +27,16 @@
 .registro h2, .registro p, .login h2, .login p, .etiqueta p{
   margin-top: 3px;
   margin-bottom: 3px;
+  color: #EEEFF1;
+  font-family: 'Noticia Text', serif;
+
+
 }
 
 .formulario, .etiqueta{
   margin: 4px;
   width: 70%;
-  background-color: #f6e29a;
+  background-color: rgba(48,67,87,0.7);
   padding: 5px;
 }
 
@@ -55,7 +60,7 @@ input, .paisUsuario, .labelAvatar{
 }
 
 .paisUsuario, .labelAvatar{
-  background-color: rgba(237, 197, 26, 0.33);
+  background-color: rgba(255, 255, 255, 0.33);
 }
 
 
@@ -63,6 +68,7 @@ input, .paisUsuario, .labelAvatar{
   position: relative;
   overflow: hidden;
   display: inline-block;
+
 }
 
 .upload input[type=file] {
@@ -75,8 +81,8 @@ input, .paisUsuario, .labelAvatar{
 
 button[type=submit] {
     width: 100%;
-    background-color: #f19710;
-    color: white;
+    background-color: #EFD96A;
+    color: #20354A;
     padding: 8px 15px;
     margin: 8px 0;
     border: none;

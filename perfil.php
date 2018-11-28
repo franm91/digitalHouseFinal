@@ -17,7 +17,7 @@ require_once ('head.php');
     <!-- <?php require_once('header.php'); ?> -->
     <section class="contenedorPrincipal">
       <div class="contenedorCover">
-        <img class="imagenPerfil"  src="images/fondo_perfil.jpg" alt="imagen ciudad">
+       
       </div>
       <nav class="navPerfil">
         <ul class="listPerfilL">
@@ -59,7 +59,7 @@ require_once ('head.php');
         </div>
         <hr>
         <div class="infoCuenta">
-          
+
           <ul>
             <li><strong>Usuario:</strong> <?= $usuarioLogueado->getUserName() ?></li>
             <li><strong>Password:</strong> ****** </li>

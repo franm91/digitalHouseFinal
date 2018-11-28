@@ -2,7 +2,7 @@
 require_once ('autoload.php');
 
 $title = "Registrate en Felicitrip - para el viajero que hay en vos";
-$mainTitle = "Felicitrip";
+$mainTitle = " ";
 if ($auth->estaLogueado()) {
   header("Location:perfil.php?$email");exit;
 }
@@ -70,8 +70,8 @@ require_once('head.php');
         <div class="col-2">
           <article class="formulario">
             <form class="registro" action="" method="post" enctype="multipart/form-data">
-              <h2>Crea tu cuenta</h2>
-              <p>Conectate con otr@s viajer@s para vivir nuevas experiencias sin fronteras.</p>
+              <h2>crea tu cuenta</h2>
+              <p>conectate con otr@s viajer@s para vivir nuevas experiencias sin fronteras.</p>
               <div class="fullname">
                 <input type="text" placeholder="Nombre" name="nombre" value="<?php echo $nombre ?>">
                   <span><?= $errors["errorNombre"] ?? ""; ?></span>

@@ -59,11 +59,10 @@ require_once ('head.php');
         <div class="col-2">
           <div class="ini-h3">
             <ul>
-              <li><span class="special">Conecta con miles de viajeros por el mundo.</span></li>
               <li><span class="special">vive experiencias que nunca imaginarias.</span></li>
               <li><span class="special">comparti tus consejos para otros viajeros.</span></li>
               <li><span class="special">Mostrale a todo el mundo tu viaje, quien sabe con quien te cruzaras mañana...</span></li>
-              <li><span class="special">Viaja sin fronteras!!</span></li>
+              <li><span class="special">Viaja sin eras!!</span></li>
              </ul>
 
           </div>

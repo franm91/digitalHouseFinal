@@ -1,5 +1,5 @@
 footer {
-  display: flex;
+  display: inline-block;
   align-self: flex-end;
   flex-wrap: wrap;
   margin: auto;

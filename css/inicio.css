@@ -1,10 +1,10 @@
 
 .main-ini{
   display: flex;
-  border: 5px solid #fff;
+  /* border: 5px solid #fff; */
   justify-content: space-between;
   width: 100%;
-  background-image: url(../images/ini.jpg);
+  background-image: url(../images/turismo2.jpg);
   background-position: center;
   background-size: cover;
   padding: 5px;
@@ -30,13 +30,14 @@
 .ini-h3 li{
   list-style: none;
   margin: 5px;
+  font-family: 'Noticia Text', serif;
 }
 
 
 .special{
-  background-color: #fff;
+  text-align: center;
   color: #000;
-  font-size: 18px;
+  font-size: 20px;
 }
 
 .ini-h3 p{
